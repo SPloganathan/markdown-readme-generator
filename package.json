@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/SPloganathan/markdown-readme-generator/issues"
   },
-  "homepage": "https://github.com/SPloganathan/markdown-readme-generator#readme"
+  "homepage": "https://github.com/SPloganathan/markdown-readme-generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
 }
