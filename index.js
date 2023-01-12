@@ -65,7 +65,7 @@ inquirer
     {
       type: "input",
       message: "How to use the project?",
-      name: "questions",
+      name: "usage",
     },
 
     {
