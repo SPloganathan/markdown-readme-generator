@@ -6,25 +6,26 @@ inquirer
   .prompt([
     {
       type: "input",
+      message: "What is your GitHub username?",
+      name: "githubUsername",
+    },
+
+    {
+      type: "input",
+      message: "What is your email address?",
+      name: "email",
+    },
+
+    {
+      type: "input",
       message: "What is the title of the project?",
       name: "title",
     },
+
     {
       type: "input",
       message: "What is your project description?",
       name: "description",
-    },
-
-    {
-      type: "input",
-      message: "What is your project installation instructions?",
-      name: "installation",
-    },
-
-    {
-      type: "input",
-      message: "How your project can be used?",
-      name: "usage",
     },
 
     {
@@ -43,6 +44,7 @@ inquirer
         "ISC License (ISC)",
         "The MIT License",
         "Mozilla Public License 2.0",
+        "None",
       ],
       message: "License for your project?",
       name: "license",
@@ -50,20 +52,27 @@ inquirer
 
     {
       type: "input",
-      message: "Contribution details?",
-      name: "contributing",
+      message: "What is your project installation instructions?",
+      name: "installation",
     },
 
     {
       type: "input",
-      message: "What is the tests for your application?",
+      message: "What command should be used to run tests?",
       name: "test",
     },
 
     {
       type: "input",
-      message: "How to use?",
+      message: "How to use the project?",
       name: "questions",
+    },
+
+    {
+      type: "input",
+      message:
+        "What does the user need to know about the contribution details?",
+      name: "contributing",
     },
   ])
   .then((response) =>
