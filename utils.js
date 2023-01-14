@@ -17,6 +17,8 @@ const generateReadme = (response) => {
   // table of contents is created dynamically using if block so that it displays only the given inputs
   let licenseDetails = `# ${title}
 
+[![License](${image})](${url})
+
 ## Table of Contents`;
 
   if (description) {
@@ -43,6 +45,11 @@ const generateReadme = (response) => {
     licenseDetails += `
 * [License](#license)`;
   }
+  if (email || githubUsername) {
+    licenseDetails += `
+* [Questions](#questions)`;
+  }
+
   //  similar to the table of content logic we are displaying only the given inputs
   if (description) {
     licenseDetails += `
@@ -80,22 +87,16 @@ ${contributing}`;
     licenseDetails += `
 ## License
   
-${license}
-[![License](${image})](${url})
+This project is licensed under ${license}
+
    
 ---`;
   }
   if (email || githubUsername) {
     licenseDetails += `
-Feel free to contact me with examples or any questions via the information below:`;
-    if (email)
-      licenseDetails += `
+## Questions
 
-Email: ${email}`;
-    if (githubUsername)
-      licenseDetails += `
-
-GitHub: [@${githubUsername}](https://github.com/${githubUsername})`;
+If you have any questions about your repo, open an issue or contact me directly at ${email}. You can find more of my work at [@${githubUsername}](https://github.com/${githubUsername})`;
   }
   return licenseDetails;
 };
