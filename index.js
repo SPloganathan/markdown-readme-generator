@@ -52,12 +52,14 @@ inquirer
       type: "input",
       message: "What is your project installation instructions?",
       name: "installation",
+      default: "npm install",
     },
 
     {
       type: "input",
       message: "What command should be used to run tests?",
       name: "test",
+      default: "npm run test",
     },
 
     {

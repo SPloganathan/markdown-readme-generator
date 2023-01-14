@@ -10,56 +10,91 @@ const generateReadme = (response) => {
     usage,
     contributing,
   } = response;
+
   const { image, url } = getLicenseMeta(license);
-  return `# ${title}
+  let licenseDetails = `# ${title}
 
-  ## Table of Contents
-  * [Description](#description)
-  * [Installation](#installation)
-  * [Usage](#usage)
-  * [Test](#test)
-  * [Contribution](#contribution)
-  * [License](#license)
+## Table of Contents`;
 
-  ## Description 
+  if (description) {
+    licenseDetails += `
+* [Description](#description)`;
+  }
+  if (installation) {
+    licenseDetails += `
+* [Installation](#installation)`;
+  }
+  if (usage) {
+    licenseDetails += `
+* [Usage](#usage)`;
+  }
+  if (test) {
+    licenseDetails += `
+* [Test](#test)`;
+  }
+  if (contributing) {
+    licenseDetails += `
+* [Contribution](#contribution)`;
+  }
+  if (license) {
+    licenseDetails += `
+* [License](#license)`;
+  }
+
+  if (description) {
+    licenseDetails += `
+## Description 
     
-  *The what, why, and how:* 
-    
-  ${description}
+*The what, why, and how:* 
+      
+${description}`;
+  }
+  if (installation) {
+    licenseDetails += `
+## Installation
   
+${installation}`;
+  }
+  if (usage) {
+    licenseDetails += `
+## Usage 
   
- 
-    
-  
-  ## Installation
-  
-  ${installation}
-  
-  ## Usage 
-  
- ${usage}
+${usage}`;
+  }
+  if (test) {
+    licenseDetails += `
+## Test
 
- ## Test
+${test}`;
+  }
+  if (contributing) {
+    licenseDetails += `
+## Contribution
 
- ${test}
- 
- ## Contribution
+${contributing}`;
+  }
+  if (license) {
+    licenseDetails += `
+## License
+  
+${license}
+[![License](${image})](${url})
+   
+---`;
+  }
+  if (email || githubUsername) {
+    licenseDetails += `
+Feel free to contact me with examples or any questions via the information below:`;
+    if (email)
+      licenseDetails += `
 
- ${contributing}
+Email: ${email}`;
+    if (githubUsername)
+      licenseDetails += `
 
-  
-  ## License
-  
- ${license}
- [![License](${image})](${url})
-
-  ---
-  
-  If you utilize this app to generate a README for your project, I'd love to see. Feel free to contact me with examples or any questions via the information below:
-  
-  GitHub: [@${githubUsername}](https://github.com/${githubUsername})
-  
-  Email: ${email}`;
+GitHub: [@${githubUsername}](https://github.com/${githubUsername})`;
+  }
+  return licenseDetails;
 };
 
 const getLicenseMeta = (name) => {
