@@ -1,4 +1,6 @@
+// creating a utility function called generateReadme which will generate a markdown syntax based on the input given by user
 const generateReadme = (response) => {
+  // inputs destructured from response
   const {
     githubUsername,
     email,
@@ -12,6 +14,7 @@ const generateReadme = (response) => {
   } = response;
 
   const { image, url } = getLicenseMeta(license);
+  // table of contents is created dynamically using if block so that it displays only the given inputs
   let licenseDetails = `# ${title}
 
 ## Table of Contents`;
@@ -40,7 +43,7 @@ const generateReadme = (response) => {
     licenseDetails += `
 * [License](#license)`;
   }
-
+  //  similar to the table of content logic we are displaying only the given inputs
   if (description) {
     licenseDetails += `
 ## Description 
@@ -97,6 +100,7 @@ GitHub: [@${githubUsername}](https://github.com/${githubUsername})`;
   return licenseDetails;
 };
 
+// getLicenceMeta is util function which will accepts the name of the license and return the batch image URL and website link
 const getLicenseMeta = (name) => {
   switch (name) {
     case "Apache 2.0 License":
@@ -156,7 +160,7 @@ const getLicenseMeta = (name) => {
       };
   }
 };
-
+// generateReadme is exported so that it can be used inside the index.js
 module.exports = {
   generateReadme,
 };

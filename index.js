@@ -1,7 +1,9 @@
+// imported required modules
 const inquirer = require("inquirer");
 const fs = require("fs");
+// imported local utilities
 const utils = require("./utils");
-
+// added prompts for getting inputs from user
 inquirer
   .prompt([
     {
@@ -75,6 +77,7 @@ inquirer
       name: "contributing",
     },
   ])
+  // creating a README file using fs.writeFile inside promise
   .then((response) =>
     fs.writeFile("README.md", utils.generateReadme(response), (error) =>
       error ? console.log(error) : console.log("success")
