@@ -39,8 +39,6 @@ inquirer
         "GNU GPL v3",
         "GNU GPL v2",
         "GNU AGPL v3",
-        "GNU LGPL v3",
-        "GNU FDL v1.3",
         "ISC License (ISC)",
         "The MIT License",
         "Mozilla Public License 2.0",
