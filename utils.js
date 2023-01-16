@@ -63,7 +63,9 @@ ${description}`;
     licenseDetails += `
 ## Installation
   
-${installation}`;
+\`\`\`
+${installation}
+\`\`\` `;
   }
   if (usage) {
     licenseDetails += `
@@ -75,7 +77,9 @@ ${usage}`;
     licenseDetails += `
 ## Test
 
-${test}`;
+\`\`\`
+${test}
+\`\`\` `;
   }
   if (contributing) {
     licenseDetails += `
